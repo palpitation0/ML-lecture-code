@@ -8,15 +8,15 @@ d1 = dist(data, method="manhattan")
 d1
 ?dist
 
-#1. ´ÜÀÏ¿¬°á¹ı=ÃÖ´Ü¿¬°á¹ı
+#1. ë‹¨ì¼ì—°ê²°ë²•=ìµœë‹¨ì—°ê²°ë²•
 single = hclust(dist(data, method="manhattan"),
                 method="single")
-plclust(single) # ±ºÁıÈ­ °úÁ¤À» ±×·¡ÇÁÈ­(Dendrogram)
-plclust(single, hang=-1) # À§ °úÁ¤À» ¹ØÀ¸·Î Âß ³»·Á¼­
+plclust(single) # êµ°ì§‘í™” ê³¼ì •ì„ ê·¸ë˜í”„í™”(Dendrogram)
+plclust(single, hang=-1) # ìœ„ ê³¼ì •ì„ ë°‘ìœ¼ë¡œ ì­‰ ë‚´ë ¤ì„œ
 
-cutree(single,2) # ±ºÁı ¸î °³·Î ³ª´­Áö ÁöÁ¤ - id ºÎ¿©
+cutree(single,2) # êµ°ì§‘ ëª‡ ê°œë¡œ ë‚˜ëˆŒì§€ ì§€ì • - id ë¶€ì—¬
 
-#2. ¿ÏÀü¿¬°á¹ı=ÃÖÀå¿¬°á¹ı
+#2. ì™„ì „ì—°ê²°ë²•=ìµœì¥ì—°ê²°ë²•
 complete = hclust(dist(data, method="manhattan"),
                   method="complete")
 plclust(complete)
@@ -24,18 +24,18 @@ plclust(complete, hang=-1)
 cutree(complete,2)
 cutree(complete,3)
 
-#3. Æò±Õ¿¬°á¹ı
+#3. í‰ê· ì—°ê²°ë²•
 average = hclust(dist(data, method="manhattan"),
                  method="average")
 plclust(average)
 cutree(average,3)
 
-#4. Áß½É¿¬°á
+#4. ì¤‘ì‹¬ì—°ê²°
 centroid = hclust(dist(data, method="manhattan"),
                   method="centroid")
 plclust(centroid)
 
-# ºĞÇÒºĞ¼®
+# ë¶„í• ë¶„ì„
 
 library(cluster)
 diana = diana(data, metric="manhattan")
