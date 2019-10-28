@@ -89,7 +89,26 @@ table(pred.qda$class, purchase$purchase)
     ##   비구매    4     11
 
 ``` r
-boxplot(purchase)
+library(ROCR)
+```
+
+    ## Warning: package 'ROCR' was built under R version 3.6.1
+
+    ## Loading required package: gplots
+
+    ## Warning: package 'gplots' was built under R version 3.6.1
+
+    ## 
+    ## Attaching package: 'gplots'
+
+    ## The following object is masked from 'package:stats':
+    ## 
+    ##     lowess
+
+``` r
+rocpred = prediction(pred.lda$x, purchase$purchase)
+perf = performance(rocpred, "tpr", "fpr")
+plot(perf)
 ```
 
 ![](LDA_files/figure-markdown_github/unnamed-chunk-11-1.png)
